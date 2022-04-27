@@ -46,8 +46,15 @@ WebDriverWait wait;
 public void setup() throws Exception {
 
 	//Initialisation du driver
-	System.setProperty("webdriver.gecko.driver", "C:\\Users\\jgrisel\\eclipse-workspace\\hotelwebbappselenium\\src\\main\\resources\\driver\\geckodriver.exe");
-	driver = new FirefoxDriver();
+	String Choixdriver=System.getProperty("driver");
+	if (Choixdriver.equals("Firefox")) {
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\jgrisel\\eclipse-workspace\\hotelwebbappselenium\\src\\main\\resources\\driver\\geckodriver.exe");
+		driver = new FirefoxDriver();
+	}
+	
+	
+	System.setProperty("webdriver.chrome.driver", "C:\\Users\\jgrisel\\eclipse-workspace\\hotelwebbappselenium\\src\\main\\resources\\driver\\chromedriver.exe");
+	
 	driver.get("http://localhost:8080/HotelWebapp");
     
     //aller sur le site du PROJET
